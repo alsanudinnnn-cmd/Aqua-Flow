@@ -1,0 +1,37 @@
+{
+  "readings": {
+    "sample-001": {
+      "sensor_name": "YF-S201",
+      "flow_rate": 4.25,
+      "water_usage": 2.5,
+      "leakage_status": "Normal",
+      "timestamp": 1787805025000
+    },
+    "sample-002": {
+      "sensor_name": "YF-S201",
+      "flow_rate": 4.8,
+      "water_usage": 3.1,
+      "leakage_status": "Normal",
+      "timestamp": 1787805085000
+    },
+    "sample-003": {
+      "sensor_name": "YF-S201",
+      "flow_rate": 5.1,
+      "water_usage": 3.5,
+      "leakage_status": "Warning",
+      "timestamp": 1787805145000
+    }
+  },
+  "settings": {
+    "flow_threshold": 1,
+    "continuous_flow_duration": 10,
+    "leakage_detection_enabled": true,
+    "alerts_enabled": true
+  },
+  "system": {
+    "esp32_status": "Online",
+    "sensor_status": "Connected",
+    "last_received": 1787805145000
+  }
+}
+

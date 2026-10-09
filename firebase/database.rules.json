@@ -1,0 +1,30 @@
+{
+  "rules": {
+    ".read": false,
+    ".write": false,
+    "readings": {
+      ".read": "auth != null && auth.provider === 'password'",
+      ".indexOn": ["timestamp"],
+      "$reading": {
+        ".write": "auth != null",
+        ".validate": "newData.hasChildren(['sensor_name', 'flow_rate', 'water_usage', 'leakage_status', 'timestamp']) && newData.child('sensor_name').isString() && newData.child('flow_rate').isNumber() && newData.child('flow_rate').val() >= 0 && newData.child('water_usage').isNumber() && newData.child('water_usage').val() >= 0 && newData.child('leakage_status').isString() && newData.child('timestamp').isNumber()"
+      }
+    },
+    "alerts": {
+      ".read": "auth != null && auth.provider === 'password'",
+      ".indexOn": ["started_at"],
+      "$alert": {
+        ".write": "auth != null",
+        ".validate": "newData.hasChildren(['started_at', 'duration_seconds', 'estimated_water_loss', 'status'])"
+      }
+    },
+    "settings": {
+      ".read": "auth != null && auth.provider === 'password'",
+      ".write": "auth != null && auth.provider === 'password'"
+    },
+    "system": {
+      ".read": "auth != null && auth.provider === 'password'",
+      ".write": "auth != null && auth.provider === 'password'"
+    }
+  }
+}
